@@ -5,6 +5,7 @@ const Home = () => {
     return (
         <div className='div-home'>
             <h4>Hola</h4>
+            <h4>DIOS</h4>
         </div>
     );
 };
