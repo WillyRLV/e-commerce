@@ -5,7 +5,7 @@ const Blog = () => {
     return (
         <div className='div-blog'>
             <h4>Blog</h4>
-            <h5>EDITADO</h5>
+            <h5>EDITADO2</h5>
         </div>
     );
 };
