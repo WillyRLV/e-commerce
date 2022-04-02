@@ -9,7 +9,7 @@ const Router = () => {
       <Routes>
 
         <Route path="/" element={<Navbar />}>
-            
+
         </Route>
       </Routes>
     </BrowserRouter>
