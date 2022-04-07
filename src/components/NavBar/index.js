@@ -5,7 +5,7 @@ import { useState } from "react";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import "./nav.css";
 import Footer from "../Footer/Footer";
-import logo from "../../images/logo.png";
+import logo from "../../assets/image/logo.png";
 
 const Navbar = () => {
   const [status, setStatus] = useState("menu-nav");
