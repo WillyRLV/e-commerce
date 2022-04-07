@@ -4,20 +4,78 @@ import {Grid, Container, Button, Card, CardContent, CardMedia, Box, FormControl,
   Select,
   MenuItem,} from "@mui/material";
 import {getProductToys} from "../../services/firestore";
-
+import { sortBy } from "lodash";
+import { Link } from "react-router-dom";
 import "./tienda.css";
 
 
 const Tienda = () => {
   const [products, setProducts] = useState([]);
 
-  
-
   const fetchProducts = async () => {
     const data =await getProductToys ();
-    
+    console.log(data);
     setProducts(data);
+    return data;
   };
+
+  const handleOrderProducts = (e) => {
+    const { value } = e.target;
+
+    if (value === "Todos") {
+      fetchProducts();
+      return;
+    }
+    const sortedProducts = sortBy(products,value);
+    setProducts(sortedProducts);
+  };
+
+  const handleFilterRange = async (e) => {
+    const { value } = e.target;
+
+    if (value === "Todos") {
+      fetchProducts();
+      return;
+    }
+    const products = await fetchProducts();
+    const sortedProducts = products.filter(
+      (product) => product.rango.trim() === value
+    );
+    setProducts(sortedProducts);
+  };
+
+  const handleFilterMaterial = async (e) => {
+    const { value } = e.target;
+
+    if (value === "Todos") {
+      fetchProducts();
+      return;
+    }
+    const products = await fetchProducts();
+    const sortedProducts = products.filter(
+      (product) => product.material.trim() === value
+    );
+    setProducts(sortedProducts);
+  }
+
+  const handleFilterFuncion = async (e) => {
+    const { value } = e.target;
+
+    if (value === "Todos") {
+      fetchProducts();
+      return;
+    }
+    const products = await fetchProducts();
+    const sortedProducts = products.filter(
+      (product) => product.funcion.trim() === value
+    );
+    setProducts(sortedProducts);
+  }
+
+
+
+
+
 
   useEffect (() => {
     fetchProducts();
@@ -34,7 +92,7 @@ const Tienda = () => {
                 <br/>
                 <FormControl fullWidth>
                   <InputLabel>Edades:</InputLabel>
-                  <Select label="Edades">
+                  <Select label="Edades" onChange={handleFilterRange}>
                     <MenuItem value="Todos">Todos</MenuItem>
                     <MenuItem value="1 a 3">1 a 3</MenuItem>
                     <MenuItem value="3 a 5">3 a 5</MenuItem>
@@ -45,7 +103,7 @@ const Tienda = () => {
                 <br/>
                 <FormControl fullWidth>
                   <InputLabel>Material</InputLabel>
-                  <Select label="material">
+                  <Select label="material" onChange={handleFilterMaterial}>
                     <MenuItem value="Todos">Todos</MenuItem>
                     <MenuItem value="madera">Madera</MenuItem>
                     <MenuItem value="madera/metal">Madera/Metal</MenuItem>
@@ -56,13 +114,15 @@ const Tienda = () => {
                 <br/>
                 <FormControl fullWidth>
                   <InputLabel>Funcion:</InputLabel>
-                  <Select label="funcion">
+                  <Select label="funcion" onChange={handleFilterFuncion}>
                     <MenuItem value="Todos">Todos</MenuItem>
                     <MenuItem value="psicomotricidad">Psicomotricidad</MenuItem>
                     <MenuItem value="sensorial">Sensorial</MenuItem>
                     <MenuItem value="reconocimiento">Reconocimiento</MenuItem>
                     <MenuItem value="memoria">Memoria</MenuItem>
                     <MenuItem value="geometria">Geometria</MenuItem>
+                    <MenuItem value="matematica">Matemática</MenuItem>
+                    <MenuItem value="mecanica">Mecánica</MenuItem>
                   </Select>
                 </FormControl>
                 <br/>
@@ -74,9 +134,9 @@ const Tienda = () => {
           <Grid padding={2} className="ordenar">
           <FormControl fullWidth>
             <InputLabel>Ordenar por:</InputLabel>
-            <Select label="Ordenar por">
+            <Select label="Ordenar por:" onChange={handleOrderProducts} className="select">
             <MenuItem value="Todos">Todos</MenuItem>
-              <MenuItem value="nombre">Nombre</MenuItem>
+              <MenuItem value="name">Nombre</MenuItem>
               <MenuItem value="precio">Precio</MenuItem>
               <MenuItem value="funcion">Funcion</MenuItem>
             </Select>
@@ -95,7 +155,9 @@ const Tienda = () => {
                       <div className="description">
                         <p>{product.name}</p>
                         <span className="price">Precio $ {product.precio}</span>
-                        <Button variant="contained" className="button" fullWidth>Ver detalles</Button>
+                        <Link to={`/tienda/detalles/${product.id}`} className="link">
+                          <Button variant="contained" className="button" fullWidth>Ver detalles</Button>
+                        </Link>
                       </div>
                     </CardContent>
                   </Card>  
