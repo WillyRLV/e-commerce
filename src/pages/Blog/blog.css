@@ -1,0 +1,17 @@
+.title {
+  color: #1a6283;
+  }
+  
+.banner-top {
+    width: 100%;
+    height: 20vh;
+    background: url(../../assets/banner1.jpg ) top center;
+
+    position: relative;
+  }
+
+.nota {
+  height: 400px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+}
