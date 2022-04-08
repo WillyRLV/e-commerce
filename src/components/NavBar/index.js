@@ -2,12 +2,22 @@ import "./nav.css";
 import ShoppingBasketOutlinedIcon from "@mui/icons-material/ShoppingBasketOutlined";
 import { Link, Outlet } from "react-router-dom";
 import { useState } from "react";
+import { Button, Dialog } from "@mui/material";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import "./nav.css";
+import Login from "../Login";
 import Footer from "../Footer/Footer";
 import logo from "../../assets/image/logo.png";
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import {Theme} from "../../styles"
+
 
 const Navbar = () => {
+  const [open, setOpen] = useState(false);
+
+  const handleClose = () => {
+    setOpen(false);
+  };
   const [status, setStatus] = useState("menu-nav");
   const [toggleIcon, setToggleIcon] = useState("nav__toggler");
 
@@ -47,17 +57,26 @@ const Navbar = () => {
                 <li>
                   <Link to="/">Blog</Link>
                 </li>
-                <li className="login">
-                  <Link to="/">
+                <li >
+                <ThemeProvider theme={Theme}>
+                  <Button  color="primary" 
+                  variant="contained" 
+                  onClick={() => setOpen(true)}
+                  startIcon={
                     <AccountCircleOutlinedIcon
-                      sx={{ fontSize: 19, marginRight: 0.8, marginTop: 0.6 }}
-                    />
+                  />
+                }
+                  >
+                   
                     Login
-                  </Link>
+                  </Button>
+                  </ThemeProvider>
+                  
                 </li>
               </ul>
             </div>
           </div>
+
           <div className="btn-login">
             <div>
               <ShoppingBasketOutlinedIcon
@@ -83,7 +102,10 @@ const Navbar = () => {
       <section>
         <Outlet />
       </section>
-      <Footer/>
+      <Footer />
+      <Dialog open={open} onClose={handleClose}>
+        <Login />
+      </Dialog>
     </div>
   );
 };

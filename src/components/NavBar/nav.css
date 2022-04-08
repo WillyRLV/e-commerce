@@ -58,7 +58,7 @@
   align-items: center;
 }
 
-.login a {
+.login {
   color: #fff !important;
   display: flex;
   justify-content: center;
