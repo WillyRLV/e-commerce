@@ -18,9 +18,6 @@ const Private = ()=>{
                             <Link to="/admin">Productos</Link>
                         </li>
                         <li className="li-nav">
-                            <Link to="/admin">Pedidos</Link>
-                        </li>
-                        <li className="li-nav">
                             <Link to="/admin/cuenta">Cuenta</Link>
                         </li>
                         

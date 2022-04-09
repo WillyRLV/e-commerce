@@ -1,6 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import { Container, Grid, Button } from "@mui/material";
 import { getProductShop } from "../../services";
+import { Link } from "react-router-dom";
 import "./index.css";
 import CreateProduct from "../../components/CreateProduct";
 import EditDeleteProduct from "../../components/EditDeleteProduct";
@@ -29,7 +30,6 @@ const AdminProduct = () => {
                             <img className="product-photo" src={product.url} alt=""></img>
                             <div className="description" >
                                 <p>{product.name}</p>
-                                <p>{product.material}</p>
                                 <p className="container-buttons">
                                     <span className="price">S/.
                                         {product.precio}
@@ -38,7 +38,9 @@ const AdminProduct = () => {
                                 <ButtonForProduct clothe={product}/>*/}
 
                                 </p>
-                                <EditDeleteProduct></EditDeleteProduct>
+                                <Link to={`/admin/${product.id}`}>
+                                    <Button color="info">Editar</Button>
+                                </Link>
                             </div>
                         </Grid>
                     ))}

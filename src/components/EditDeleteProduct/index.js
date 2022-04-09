@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Dialog, Button, DialogContentTextTypeMap, TextField, Grid, DialogContent } from "@mui/material";
 import { deleteProductShop, updateProductShop, getProductId } from "../../services";
+import { Container } from "react-bootstrap";
 
 
 const EditDeleteProduct = (props) => {
@@ -18,7 +19,6 @@ const EditDeleteProduct = (props) => {
         rango: "",
         precio: "",
         material: "",
-
     });
 
     const [currentId, setCurrentId] = useState("");
@@ -36,10 +36,11 @@ const EditDeleteProduct = (props) => {
 
     const onDeleteLink = async(id)=>{
         console.log(id);
-    }
+    };
+    
     return (
         <div>
-            <Button variant="contained" color="primary" onClick={OpenDialog} >Detalle</Button>
+            <Button variant="contained" color="primary" onClick={OpenDialog} >Opciones</Button>
             <Dialog open={open} onClose={OpenDialog}>
                 <DialogContent>
                     <Grid container >

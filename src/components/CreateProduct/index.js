@@ -43,14 +43,14 @@ const CreateProduct = (props) => {
             <Dialog open={open} onClose={OpenDialog}>
                 <DialogContent>
                     <Grid container spacing={3}>
-                        <Grid item md={6} >
-                            <TextField label="ID del Producto" name="id" fullWidth onChange={ChangeInput} />
-                        </Grid>
                         <Grid item md={12} >
-                            <TextField label="Nombre del Producto" name="nombre" fullWidth onChange={ChangeInput} />
+                            <TextField label="Nombre del Producto" name="name" fullWidth onChange={ChangeInput} />
                         </Grid>
                         <Grid item md={12} mt={2}>
                             <TextField label="Dimensiones del producto" name="dimension" fullWidth onChange={ChangeInput} />
+                        </Grid>
+                        <Grid item md={12} mt={2}>
+                            <TextField label="Descripcion del producto" name="descripcion" fullWidth onChange={ChangeInput} />
                         </Grid>
                         <Grid item md={12} mt={2}>
                             <TextField label="Url de Foto" name="url" fullWidth onChange={ChangeInput} />

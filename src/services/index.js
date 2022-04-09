@@ -1,9 +1,8 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { doc, getDocs, collection, getFirestore, setDoc, updateDoc, deleteDoc } from "firebase/firestore/lite";
+import { doc, getDocs, collection, getFirestore, setDoc, updateDoc, deleteDoc, getDoc } from "firebase/firestore/lite";
 import { v4 as uudiv4 } from "uuid";
 import { getAnalytics } from "firebase/analytics";
-import { Dvr } from "@mui/icons-material";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAcvTpBwDUUMlfPsCGxfLIH4dWcbOiE8OU",
@@ -31,17 +30,10 @@ export const storeProductShop = async (product) => {
   await setDoc(doc(db, "toys", id), product);
 }
 
-export const updateProductShop = async (id,product) => {
-  await updateDoc(doc(db,"toys",id),product);
+export const updateProductShop = async (id, product) => {
+  await updateDoc(doc(db, "toys", id), product);
 }
 
 export const deleteProductShop = async (id) => {
   await deleteDoc(doc(db, "toys", id));
 }
-
-export const getProductShopId = async (id) => {
-  const collectionShop = collection(db, "toys",id);
-  const documentShop = await getDocs(collectionShop);
-  const shop = documentShop.docs.map((doc) => doc.data());
-  return shop;
-};
