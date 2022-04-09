@@ -12,6 +12,11 @@ import Home from "../pages/Home/home";
 import Order from "../pages/Order/Index";
 import NotFound from '../pages/NotFound'
 
+import Blog from "../pages/Blog";
+
+import Nosotros from "../pages/Nosotros";
+
+
 const Router = () => {
   const initialState = useInitialState();
 
@@ -26,6 +31,8 @@ const Router = () => {
             <Route path="/signup" element={<SignUp />} />
             <Route path="/order" element={<Order />} />
             <Route path="*" element={<NotFound/>} />
+            <Route path="/blog" element={<Blog />} />  
+        <Route path="/nosotros" element={<Nosotros />} />  
           </Route>
         </Routes>
       </BrowserRouter>

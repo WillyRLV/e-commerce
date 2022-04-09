@@ -10,6 +10,7 @@
 }
 
 .nav {
+  width: 100%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -82,12 +83,13 @@ filter: saturate(3);
 @media screen and (max-width: 700px) {
 
   .nav {
-  width: 100%;
+width: 100%;
    position: fixed;
     font-size: 16px;
     max-height: 60px;
     min-height: 60px;
     padding: 40px 10%;
+    margin-left: -11px;
     box-shadow: 0px 4px 5px -1px #443939;
     background-color: #f8f4f4;
     z-index: 10;
@@ -95,6 +97,7 @@ filter: saturate(3);
   }
 
   .nav img{
+   margin-top: -40px;
     width: 80px !important;
   }
 
@@ -137,6 +140,7 @@ filter: saturate(3);
 .nav__toggler {
   cursor: pointer;
   display: none;
+  margin-top: -30px;
 }
 
 /*nav active class*/

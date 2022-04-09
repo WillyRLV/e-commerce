@@ -81,10 +81,10 @@ const Navbar = () => {
                   <Link to="/tienda">Tienda</Link>
                 </li>
                 <li>
-                  <Link to="/">Nosotros</Link>
+                  <Link to="/nosotros">Nosotros</Link>
                 </li>
                 <li>
-                  <Link to="/">Blog</Link>
+                  <Link to="/blog">Blog</Link>
                 </li>
                 <li >
                 <ThemeProvider theme={Theme}>
@@ -116,6 +116,7 @@ const Navbar = () => {
                     fontSize: 30,
                     color: "#73548B",
                     marginRight: 2,
+                    marginTop: -4,
                     cursor: "pointer",
                     transition: "0.3s",
                   }}
