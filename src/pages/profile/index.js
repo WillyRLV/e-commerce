@@ -1,48 +1,107 @@
 //* importaciones
-import { Container, Grid, Button } from "@mui/material";
+import { Button, TextField, Grid, Container } from "@mui/material";
 import { useState, useEffect } from "react";
-import { getMovies } from "../../services/edit";
 import "./index.css";
-import Edit from "../../components/Edit"
-
+import {
+  getProductClothes,
+  sendEmail,
+  storeProductClothe,
+  updateProductClothe,
+} from "../../services/firestore";
+import { useParams } from "react-router-dom";
 
 
 //padre 👇
 const Profile = () => {
-  const [movies,storeMovies] = useState([])
-  
+  const [open, setOpen] = useState(false);
+
+  const { id } = useParams();
+
+  const [values, setValues] = useState({
+    nombre: "",
+    apellido: "",
+    correo: "",
+    photoURL: "",
+  });
+
+  const handleChangeInput = (e) => {
+    const { value, name } = e.target;
+
+    setValues({
+      ...values,
+      [name]: value,
+    });
+  };
+
+  const handleOpenDialog = () => {
+    setOpen(!open);
+  };
+
+  const irAdministracion = async () => {
+    window.location.href = "/Administracion";
+    await getProductClothes(values);
+    await updateProductClothe(id, values);
+  };
+
   return (
-    <Container>
+    <Container className="color">
       <Grid container spacing={2} mt={5}>
-        <Grid>
-        </Grid>
         <Grid item md={4}>
           <img
             className="imagen"
-            src="https://i.pinimg.com/736x/ea/aa/42/eaaa42a2f47ca4abbb93987d54264768.jpg"
+            src={values.photoURL}
             alt=""
           />
         </Grid>
         <Grid item md={4} container spacing={3}>
-              
-          <Grid item md={4} >
-            <h4>Nombre</h4>
-          </Grid>
-          <Grid item md={4} >
-            <h4>Apellido</h4>
-          </Grid>
-          <Grid  item md={12}>
-            <h4>email.com</h4>
-          </Grid>
-          <Grid item md={12}>
-            <h4>numero</h4>
+          <Grid container spacing={3}>
+            <Grid item md={8}>
+              <h2>Hola Administrador</h2>
+            </Grid>
+            <Grid item md={6}>
+              <TextField
+                label="nombre"
+                name="nombre"
+                fullWidth
+            value={values.nombre}
+            onChange={handleChangeInput}
+              />
+            </Grid>
+            <Grid item md={6}>
+              <TextField
+                label="Apellido"
+                name="apellido"
+                fullWidth
+            value={values.apellido}
+            onChange={handleChangeInput}
+              />
+            </Grid>
+            <Grid item md={6}>
+              <TextField
+                label="correo"
+                name="correo"
+                fullWidth
+            value={values.correo}
+
+                onChange={handleChangeInput}
+              />
+            </Grid>
+            <Grid item md={6}>
+              <TextField
+                label="foto de perfil"
+                name="photoURL"
+                fullWidth
+            value={values.photoURL}
+                onChange={handleChangeInput}
+              />
+            </Grid>
           </Grid>
           <Grid item xs={4}>
-            {/**boton de editar */}
-          <Edit/>
-          </Grid>
-          <Grid item xs={4}>
-            <Button variant="contained" color="secondary">
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={irAdministracion}
+            >
               Confirmar
             </Button>
           </Grid>

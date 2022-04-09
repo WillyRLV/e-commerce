@@ -5,6 +5,7 @@ import { useState } from "react";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import "./nav.css";
 import Footer from "../Footer/Footer";
+import logo from "../../assets/image/logo.png";
 
 const Navbar = () => {
   const [status, setStatus] = useState("menu-nav");
@@ -32,9 +33,7 @@ const Navbar = () => {
       <nav className="container">
         <div className="nav">
           <div className="logo">
-            <h4>
-              <Link to="/">LOGO</Link>
-            </h4>
+            <img src={logo} style={{ width: 140 }} />
           </div>
           <div>
             <div className={status}>
@@ -58,21 +57,27 @@ const Navbar = () => {
                 </li>
               </ul>
             </div>
-
           </div>
           <div className="btn-login">
             <div>
               <ShoppingBasketOutlinedIcon
-                sx={{ fontSize: 30, color: "#73548B", marginRight:2 }}
+                className="carshop"
+                sx={{
+                  fontSize: 30,
+                  color: "#73548B",
+                  marginRight: 2,
+                  cursor: "pointer",
+                  transition: "0.3s",
+                }}
               />
             </div>
           </div>
-          
+
           <div className={toggleIcon} onClick={navToggle}>
-              <div className="line1"></div>
-              <div className="line2"></div>
-              <div className="line3"></div>
-            </div>
+            <div className="line1"></div>
+            <div className="line2"></div>
+            <div className="line3"></div>
+          </div>
         </div>
       </nav>
       <section>
