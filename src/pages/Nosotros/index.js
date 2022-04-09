@@ -1,16 +1,23 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./nosotros.css";
+import Formulario from "../../components/Formulario";
 
-import imgBlog1 from "../../assets/imgBlog1.jpg";
+import imgAbout from "../../assets/img_about.png";
+
+import icnPhone from "../../assets/icn_phone.png";
+import icnAdress from "../../assets/icn_adress.png";
+import icnMail from "../../assets/icn_mail.png";
 
 const Nosotros = () => {
+
+
+
+
   return (
     
-  <div  class="blog-page ">
+  <div  class="nosotros-page ">
     
-    <div class="banner-top mt-5 d-flex   ">
-          <h1>Blog</h1>
-    </div> 
+    <div class="banner-top mt-5 d-flex"> </div> 
 
     <div class="container mt-5 d-flex ">
     <div class="row">
@@ -23,79 +30,80 @@ const Nosotros = () => {
     </nav>
     </div>
     
+
+    <div class="container mt-5 d-flex ">
+    <div class="row">
+    
     <div class="col-md-8 post-content">
-    <div class="blog-nota  mt-4 mb-5">
-      <h1 class="mt-3 mb-5">Acerca de</h1>
-         <h3 class="mt-3 mb-3">Método Montessori: qué es y qué deben saber los padres a la hora de elegirlo para sus hijos</h3>
-          <p> Cada vez hay más corrientes pedagógicas que se alejan del modelo prusiano de educación, aquel que se basa en la idea de que todos los niños deben de ir a la escuela,
-          superar ciertos niveles y obtener cierto grado de conocimiento. Nuevas corrientes que, en contraposición, ponen a los menores en el centro, tienen un ambiente preparado 
-          que permite que el alumno se desarrolle libremente y en la que el adulto es acompañante, no dirigente. Una de estas pedagogías, cada vez más instaurada en nuestro país, 
-          </p>
+    <div class="blog-nota  mt-4 mb-5 pr-4">
+       <h1 class="mt-3 mb-5">¿Quiénes somos?</h1>
+         <h5 class="mt-3 mb-3">Nuestra idea siempre ha sido generar una plataforma que, además de vender juegos y juguetes que den el
+          protagonismo a las niñas y los niños, sea un potente canal de difusión desde el que promover el juego infantil de calidad.</h5>
+          <p class="mt-3 mb-3 "> Desde que nos embarcamos en esta aventura, nos hemos propuesto contínuamente la difícil tarea de mirar el mundo con ojos de niñas,
+             para intentar respirarlo desde su piel. Nuestra misión no es tener la mejor empresa de juguetes del mundo, sino que lo que queremos es
+              darle al juego el espacio que merece, devolvérselo a la infancia. Por eso venimos todos los días contentas a la oficina. Tenemos un 
+              porqué.
+              </p>
+          
     </div>
     </div> 
 
-    <div class="col-lg-8 mt-5 mt-lg-0">
-    <h1 class="mt-3 mb-5">Contáctanos </h1>
-
-            <form action="" method="post" role="form" class="email-form">
-              <div class="row">
-                <div class="col-md-6 form-group">
-                  <input type="text" name="nombre" class="form-control" id="name" placeholder="Nombre" required/>
-                </div>
-                <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Correo" required/>
-                </div>
-              </div>
-              <div class="form-group mt-3">
-                <input type="text" class="form-control" name="asunto" id="subject" placeholder="Asunto" required/>
-              </div>
-              <div class="form-group mt-3">
-                <textarea class="form-control" name="mensaje" rows="5" placeholder="Mensaje" required></textarea>
-              </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">El mensaje fue enviado</div>
-              </div>
-              <div class="text-center"><button type="submit">Enviar mensaje</button></div>
-            </form>
-
-          </div>
-
-
-    </div> 
- 
-
-<div class="col-lg-4">
+    <div class="col-lg-4">
   <div class="info">
     <div class="address">
       <i class=" "></i>
-      <h4>Ubicación:</h4>
-      <p>A108 Adam Street, New York, NY 535022</p>
+      
+      <h4> <img width="30"  src={icnAdress} alt="" /> Ubicación:</h4>
+      <p>Av. Pardo y Aliaga 621, San Isidro 15073</p>
     </div>
 
     <div class="email">
       <i class=" "></i>
-      <h4>Correo:</h4>
-      <p>info@example.com</p>
+      <h4> <img width="30"  src={icnMail} alt="" /> Correo:</h4>
+      <p>info@mundopeques.com</p>
     </div>
 
     <div class="phone">
       <i class=""></i>
-      <h4>Teléfono:</h4>
-      <p>+51 5589 55488 55s</p>
+      
+      <h4> <img width="30"  src={icnPhone} alt="" /> Teléfono:</h4>
+      <p>+51 966 257 365</p>
     </div>
 
   </div>
 
 </div>
 
+
+    </div>
+    </div>
+
+
+
+    <div class="col-md-12 mt-5 mt-lg-0">
+    <h1 class="mt-3 mb-3">Contáctanos </h1>
+<div class=" container cont-formulario col-lg-12 mt-4 mb-5 container-fluid"> 
+<div class="row mt-5">
+  <div class="col-lg-7 display: flex;">
+  <p class="mt-3 mb-3 ">  Contacta con nosotros a través de info@mundopeques.com o a través de este formulario. Te responderemos de inmediato.  </p>
+<Formulario nombre={Formulario} url={Formulario} /> </div>
+<div  class=" img-form mb-5 col-md-5">
+<img src={imgAbout} alt="image" /> </div>
+
+</div>
+
+
+</div>
+</div> 
+ 
+</div>
+
+
    
   </div>
 
   </div>
 
- 
   );
 };
 

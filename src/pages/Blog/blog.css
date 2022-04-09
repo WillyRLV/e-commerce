@@ -1,11 +1,21 @@
+.blog-page {
+  font-family: 'Poppins', sans-serif;
+    background-attachment: fixed;
+    height: 100vh;
+    background-image:
+      url('../../assets/group2.png'),
+      linear-gradient(#c2e3ff 30%, #c5e7fd 40%,#ccefff);
+    background-repeat: no-repeat;
+    height: auto;
+  }
 .title {
   color: #1a6283;
   }
   
 .banner-top {
     width: 100%;
-    height: 20vh;
-    background: url(../../assets/banner1.jpg ) top center;
+    height: 5vh;
+   
 
     position: relative;
   }
@@ -14,4 +24,24 @@
   height: 400px;
   margin-bottom: 20px;
   border-radius: 15px;
+}
+
+.texto-nota  {
+text-align: justify;
+}
+
+.button {
+  background-color:#73548B;
+  border: none;
+  padding: 9px;
+  border-radius:5px;
+  color: rgb(255, 255, 255);
+
+}
+
+.enlace-blog {
+  text-decoration: none;
+font-weight: 600;
+color: #161616;
+padding-top: 10px;
 }
