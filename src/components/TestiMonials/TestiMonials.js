@@ -10,28 +10,28 @@ const TestiMonials = () => {
   
     const testiMonials = [
         {
-            name: 'Juguete1',
+            name: 'DIVERSION',
             description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s.',
 
             img: 'https://w7.pngwing.com/pngs/313/790/png-transparent-educational-toys-child-toy-block-montessori-child-toy-block-infant.png'
         },
         {
-            name: 'Juguete2',
+            name: 'HABILIDAD',
             description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s.',
            
-            img: 'https://w7.pngwing.com/pngs/313/790/png-transparent-educational-toys-child-toy-block-montessori-child-toy-block-infant.png'
+            img: 'https://www.etapainfantil.com/wp-content/plugins/aawp/public/image.php?url=aHR0cHM6Ly9tLm1lZGlhLWFtYXpvbi5jb20vaW1hZ2VzL0kvNTFZb1E4VGtZU0wuanBn'
         },
         {
-            name: 'Juguete3',
+            name: 'SEGURIDAD',
             description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s.',
           
-            img: 'https://w7.pngwing.com/pngs/313/790/png-transparent-educational-toys-child-toy-block-montessori-child-toy-block-infant.png'
+            img: 'https://www.compramejor.es/wp-content/uploads/2020/12/motor-loop-gc35945842_1920-1200x800.jpg'
         },
         {
-            name: 'Juguete4',
+            name: 'DESARROLLO',
             description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s.',
             
-            img: 'https://w7.pngwing.com/pngs/313/790/png-transparent-educational-toys-child-toy-block-montessori-child-toy-block-infant.png'
+            img: 'https://static3.elcorreo.com/www/multimedia/201712/12/media/cortadas/jugueters-educativos-navidad-no-veras-television%20(8)-k8iH-U50345481522DJD-624x450@El%20Correo.jpg'
         },
     ]
     //Owl Carousel Settings

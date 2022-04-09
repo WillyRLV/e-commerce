@@ -40,7 +40,7 @@ const ShoppingCart = ({navToggle}) => {
 					</p>
 					<p style={{fontSize:"1rem"}}> S/ {grandTotal(state.cart)}</p>
 				</div>
-					<button onClick={handleCheckOut} disabled={state.cart.length > 0 ?"":"disabled"} className="primary-button">
+					<button onClick={handleCheckOut} style={{backgroundColor:"#73548B"}} disabled={state.cart.length > 0 ?"":"disabled"} className="primary-button">
 						Checkout
 					</button>
 			</div>

@@ -1,27 +1,36 @@
-import React from 'react';
-import TestiMonials from '../../components/TestiMonials/TestiMonials';
-import "./home.css"
+import React from "react";
+import TestiMonials from "../../components/TestiMonials/TestiMonials";
+import "./home.css";
+import kid from "../../assets/image/img-kid.png"
 
 const Home = () => {
-    return (
-        <div className='sec-home'>
+  return (
+    <div className="sec-home">
+      <div className="container-home">
+        <div className="content-home">
+          <div className="content-first">
 
-            <div className='container-home'>
-            <div className='content-home'>
-                <h2>PRODUCTOS SALUDABLES Y ALTERNATIVOS PARA LOS MENORES DEL HOGAR</h2>
-                    <h3>JUGUETES EDUCATIVOS</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam congue sed et leo, dignissim odio justo.
-</p>
-            </div>
-<div className='carousel'>
+          <h3>PARA UN MEJOR FUTURO</h3>
+            <h2>
+              PRODUCTOS SALUDABLES Y ALTERNATIVOS PARA LOS MENORES DEL HOGAR
+            </h2>
+            
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+              congue sed et leo, dignissim odio justo.
+            </p>
+          </div>
 
-<TestiMonials/>
-</div>
-
-</div>
+          <div>
+              <img className="img-kid" src={kid} style={{width:"500px"}} />
+          </div>
         </div>
-
-    );
+        <div className="carousel">
+          <TestiMonials />
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Home;

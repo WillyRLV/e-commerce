@@ -7,7 +7,7 @@ const TestiMonialsDetails = ({testiMonialDetail}) => {
         <div className="item">
             <div className="shadow-effect">
                 <img className="img-circle" src={img} />
-                <p>{description}</p>
+                <p style={{fontWeight:"bold"}}>{description}</p>
             </div>
             <div className="testimonial-name">
                 <h5>{name}</h5>

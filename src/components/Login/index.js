@@ -37,8 +37,8 @@ const {control,handleSubmit} = useForm({});
       {!user&& (
         <form onSubmit={handleSubmit(iniciarSesion)}>
           <div className="div-cabecera">
-            <h1>Login </h1>
-            <p>Please login using account detail bellow.</p>
+            <h1 style={{textAlign:"center"}}>Iniciar Sesión </h1>
+            <p>Por favor ingrese sus datos</p>
             <br />
             <br />
           </div>
@@ -99,7 +99,7 @@ const {control,handleSubmit} = useForm({});
                 size="large"
                 fullWidth
                 color="analogous"
-                sx={{ height: 47 }}
+                sx={{ height: 47, backgroundColor:"#73548B" }}
               >
                 INGRESAR
               </Button>
@@ -124,7 +124,7 @@ const {control,handleSubmit} = useForm({});
           </div>
           <br />
           <ThemeProvider theme={Theme}>
-          <Button
+          <Button 
            onClick={logOutUser} 
            variant={"contained"} 
            size="medium"

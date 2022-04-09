@@ -35,18 +35,18 @@ const { addToCart } = useContext(AppContext);
 	}
 
 return (
-  <Container>
-      <Button variant="outlined" onClick={() => history(-1)}>
+  <Container sx={{height:"100vh"}} >
+      <Button sx={{marginBottom:"20px"}} variant="outlined" onClick={() => history(-1)}>
         Back
       </Button>
       {Object.keys(product).length > 0 && (
-        <Grid
+        <Grid 
           container
           alignItems="center"
-          sx={{ height: "100vh" }}
+          sx={{ height: "80vh" , backgroundColor:"#fff", borderRadius:"30px"}}
         >
-          <Grid item md={6}>
-            <img src={product?.url} width={400} alt="" />
+          <Grid  item md={6}>
+            <img  style={{borderRadius:"20%", boxShadow:"2px 0px 22px -2px rgba(0,0,0,0.75)", marginLeft:"50px"}} src={product?.url} width={400} alt=""  />
           </Grid>
           <Grid item md={6} >
             <hr/>
@@ -54,7 +54,7 @@ return (
             <hr/>
             <br/>
             
-            <Grid container>
+            <Grid  container>
               <Grid >
                 <p>
                   <b>Código</b>: {product.id}
@@ -70,7 +70,7 @@ return (
                 </p>              
               </Grid>
               <Grid item md={12} mt={5}>
-                <Button variant="contained" onClick={() => handleClick(product)} >Agregar al carrito</Button>
+                <Button className="button" variant="contained" onClick={() => handleClick(product)} >Agregar al carrito</Button>
               </Grid>
             </Grid>
           </Grid>

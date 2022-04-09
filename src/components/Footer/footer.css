@@ -2,7 +2,7 @@
   color: #fff;
   text-align: center;
   height: 40vh;
-  background-color: rgb(160, 160, 160);
+  background-color: #366c91;
   font-size: 16px;
 }
 
@@ -16,7 +16,6 @@
 
 
 .ul-footer {
-  color: #fff !important;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -27,14 +26,14 @@ gap: 10px;
 
 .ul-footer li a, .terms a{
   
-  color: rgb(70, 70, 70) !important;
+  color: rgb(248, 248, 248) !important;
   transition: .5s;
  
 }
 
 .footer a:hover{
   
-  color: rgb(117, 74, 138) !important;
+  color: rgb(166, 178, 194) !important;
  
 }
 
@@ -46,7 +45,7 @@ gap: 10px;
 
 
 .copyright{
-  color: rgb(94, 93, 93);
+  color: rgb(187, 185, 185);
   padding-top: 90px;
   font-weight: bold;
 }
