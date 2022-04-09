@@ -1,10 +1,9 @@
+import { useContext, useEffect, useState } from "react";
 import "./nav.css";
 import ShoppingBasketOutlinedIcon from "@mui/icons-material/ShoppingBasketOutlined";
 import { Link, Outlet } from "react-router-dom";
-import { useState,useEffect } from "react";
-import { Button, Dialog } from "@mui/material";
+import { Button, Dialog,IconButton } from "@mui/material";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
-import "./nav.css";
 import Login from "../Login";
 import Footer from "../Footer/Footer";
 import logo from "../../assets/image/logo.png";
@@ -12,12 +11,15 @@ import { ThemeProvider } from '@mui/material/styles';
 import {Theme} from "../../styles";
 import {auth} from "../../services/firestore"
 import { onAuthStateChanged } from "@firebase/auth";
-
+import AppContext from "../../context/AppContext"
+import ShoppingCart from "../../containers/ShoppingCart";
 
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [user,setUser]=useState(null);
+	const [toggleOrders, setToggleOrders] = useState(false);
+
 
   const getUser = () => {
     onAuthStateChanged(auth, (user) => {
@@ -47,6 +49,13 @@ const Navbar = () => {
       ? setToggleIcon("nav__toggler toggle")
       : setToggleIcon("nav__toggler");
   };
+
+  const handleToggleOrders = ()=>{
+    setToggleOrders(!toggleOrders)
+  }
+  
+  const { state } = useContext(AppContext);
+
 
   // const closeicon = (
   //   <CloseIcon
@@ -99,17 +108,23 @@ const Navbar = () => {
 
           <div className="btn-login">
             <div>
-              <ShoppingBasketOutlinedIcon
-                className="carshop"
-                sx={{
-                  fontSize: 30,
-                  color: "#73548B",
-                  marginRight: 2,
-                  cursor: "pointer",
-                  transition: "0.3s",
-                }}
-              />
+              <IconButton  onClick={handleToggleOrders} aria-label="fingerprint" color="secondary">
+                <ShoppingBasketOutlinedIcon
+                  className="carshop"
+                  sx={{
+                    fontSize: 30,
+                    color: "#73548B",
+                    marginRight: 2,
+                    cursor: "pointer",
+                    transition: "0.3s",
+                  }}
+                />
+                  {state.cart.length > 0 ? <div>{state.cart.length}</div> : null}
+              </IconButton>
+              
             </div>
+           
+
           </div>
 
           <div className={toggleIcon} onClick={navToggle}>
@@ -126,6 +141,8 @@ const Navbar = () => {
       <Dialog open={open} onClose={handleClose}>
         <Login />
       </Dialog>
+
+      {toggleOrders && <ShoppingCart  navToggle={handleToggleOrders} />}
     </div>
   );
 };

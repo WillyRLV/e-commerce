@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Container, Grid, Chip, Button } from "@mui/material";
 import {getProductToys} from "../../services/firestore";
 import "./detail.css";
+import AppContext from '../../context/AppContext'
 
 
 const Detail = () => {
@@ -25,6 +26,13 @@ useEffect (() => {
   findToy();
   
 }, []);
+
+const { addToCart } = useContext(AppContext);
+
+	const handleClick = item => {
+
+		addToCart({...item,quantity: 1});
+	}
 
 return (
   <Container>
@@ -62,7 +70,7 @@ return (
                 </p>              
               </Grid>
               <Grid item md={12} mt={5}>
-                <Button variant="contained">Agregar al carrito</Button>
+                <Button variant="contained" onClick={() => handleClick(product)} >Agregar al carrito</Button>
               </Grid>
             </Grid>
           </Grid>

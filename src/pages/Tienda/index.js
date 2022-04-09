@@ -1,8 +1,9 @@
-import {useState, useEffect} from "react";
+import {useState, useEffect,useContext} from "react";
 import {Grid, Container, Button, Card, CardContent, CardMedia, Box, FormControl,
   InputLabel,
   Select,
   MenuItem,} from "@mui/material";
+import AppContext from '../../context/AppContext'
 import {getProductToys} from "../../services/firestore";
 import { sortBy } from "lodash";
 import { Link } from "react-router-dom";
@@ -72,15 +73,17 @@ const Tienda = () => {
     setProducts(sortedProducts);
   }
 
-
-
-
-
-
   useEffect (() => {
     fetchProducts();
     
   }, []);
+
+  const { addToCart } = useContext(AppContext);
+
+	const handleClick = item => {
+
+		addToCart({...item,quantity: 1});
+	}
 
   return (
     <Container>
@@ -147,7 +150,7 @@ const Tienda = () => {
           <Grid container spacing={3} mt={2} mb={5}>
            {products.length > 0 &&
             products.map((product) => (
-                <Grid item md={4} >
+                <Grid item md={4} key={product.id} >
                   <Card height={200}>
                     <CardMedia component="img" height={200} width={250} image={product.url}
                     />
@@ -155,9 +158,13 @@ const Tienda = () => {
                       <div className="description">
                         <p>{product.name}</p>
                         <span className="price">Precio $ {product.precio}</span>
+
                         <Link to={`/tienda/detalles/${product.id}`} className="link">
-                          <Button variant="contained" className="button" fullWidth>Ver detalles</Button>
+                          <Button variant="contained" className="button"  >Ver detalles</Button>
                         </Link>
+
+                        <Button variant="contained" onClick={() => handleClick(product)} className="button" >Agregar</Button>
+
                       </div>
                     </CardContent>
                   </Card>  
@@ -169,22 +176,7 @@ const Tienda = () => {
 
 
     </Container>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
   
     )};
 
