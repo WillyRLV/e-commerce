@@ -1,35 +1,19 @@
 import "./nav.css";
 import ShoppingBasketOutlinedIcon from "@mui/icons-material/ShoppingBasketOutlined";
 import { Link, Outlet } from "react-router-dom";
-import { useState,useEffect } from "react";
+import { useState } from "react";
 import { Button, Dialog } from "@mui/material";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import "./nav.css";
 import Login from "../Login";
 import Footer from "../Footer/Footer";
 import logo from "../../assets/image/logo.png";
-import { ThemeProvider } from '@mui/material/styles';
-import {Theme} from "../../styles";
-import {auth} from "../../services/firestore"
-import { onAuthStateChanged } from "@firebase/auth";
-
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import {Theme} from "../../styles"
 
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const [user,setUser]=useState(null);
-
-  const getUser = () => {
-    onAuthStateChanged(auth, (user) => {
-      user?setUser(user):setUser(null); 
-      console.log(user)
-    });
-  };
-
-  useEffect(() => {
-    getUser();
-  }, []);
-
 
   const handleClose = () => {
     setOpen(false);
@@ -84,8 +68,7 @@ const Navbar = () => {
                 }
                   >
                    
-                    {user&&'LOGOUT'}
-                    {!user&&'LOGIN'}
+                    Login
                   </Button>
                   </ThemeProvider>
                   

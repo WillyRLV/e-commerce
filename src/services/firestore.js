@@ -8,14 +8,12 @@ import {
      } from "firebase/firestore/lite";
 import { 
     getAuth,
-
     signInWithEmailAndPassword,
     signOut,
     createUserWithEmailAndPassword,
     updateProfile,
  } from "@firebase/auth";
- import Swal from 'sweetalert2';
-
+ import Swal from 'sweetalert2'
 
 const firebaseConfig = {
   apiKey: "AIzaSyAcvTpBwDUUMlfPsCGxfLIH4dWcbOiE8OU",
@@ -31,11 +29,11 @@ const app = initializeApp(firebaseConfig);
 // database : base de datos
 const db = getFirestore(app);
 
-
-
 // Hacer la peticion para poder traer los productos
 
-export const auth = getAuth(app);
+const auth = getAuth(app);
+
+export const User = auth.currentUser;
 
 export const getProductToys = async () => {
   // paso 1: Traer la coleccion de datos
@@ -51,24 +49,24 @@ export const getProductToys = async () => {
   return toys;
 };
 
-export const loginUser= async (data) =>{
-  await signInWithEmailAndPassword(
-    auth, 
-    data.email, 
-    data.password
-    ).then(()=>{
+export const loginUser = async (data) => {
+  try{
+   await signInWithEmailAndPassword(auth, data.email, data.password)
+   
       window.location.reload();
-      return(false)
-      
-    })
-    .catch((error)=>{
-      return(true)
-    });
-    
-  };
+      return{
+        validation:true,
+      } 
+    }catch(error){
+     return{validation:false}
+    }
+};
 
 export const logOutUser = async () => {
   await signOut(auth)
+    .then(() => {
+      window.location.reload();
+    })
 
 };
 export const registerUser =async (data,rol)=>{
@@ -80,7 +78,7 @@ export const registerUser =async (data,rol)=>{
           )
           await update(data)
           setData(infoUser,data,rol)
-          Swal.fire('CUENTA CREADA!', 'la cuentase se creo satisfactoriamente', 'success').then((result)=>{
+          Swal.fire('CUENTA CREADA!', 'la cuentase cro satisfactoriamente', 'success').then((result)=>{
               if(result.isConfirmed){
                   window.location.href="/"
               }
