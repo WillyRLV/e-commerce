@@ -9,7 +9,7 @@ const Private = ()=>{
                 <div className="div-nav">
                     <img className="logo" src={logo} alt="" />
                     <li className="li-nav-user">
-                            <h4>Bienvenido(a) Usuario</h4>
+                            <h4>Bienvenido(a)</h4>
                     </li>
                 </div>
                 <div className="div-nav2">

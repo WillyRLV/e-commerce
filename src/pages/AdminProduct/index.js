@@ -4,7 +4,6 @@ import { getProductShop } from "../../services";
 import { Link } from "react-router-dom";
 import "./index.css";
 import CreateProduct from "../../components/CreateProduct";
-import EditDeleteProduct from "../../components/EditDeleteProduct";
 const AdminProduct = () => {
 
     //Traemos los datos de firebase
