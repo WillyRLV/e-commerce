@@ -1,43 +1,41 @@
 import "./index.css";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { Button, TextField } from "@mui/material";
 import { Controller, useForm } from "react-hook-form";
 import { ThemeProvider } from "@mui/material/styles";
 import { Theme } from "../../styles";
-import { User,loginUser, logOutUser } from "../../services/firestore";
+import { auth,loginUser, logOutUser } from "../../services/firestore";
 import { rulesEmail,rulesContraseña } from "../../services/rulesInputs";
+import { onAuthStateChanged } from "@firebase/auth";
 
 
 const photoURL =
   "https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png";
 
 const Login = () => {
-  const [validate,setValidate]=useState("")
-
-  const {
-    control,
-    handleSubmit,
-  } = useForm({});
+  const [user,setUser]=useState(null);
+  const [isError,setIsError]=useState(false);
   
-const login=async (data)=>{
-  const validacion = loginUser(data)
-  const errorMessage=validate?"":"Error en el Login";
-  
-setValidate(errorMessage)
-}
-console.log(validate)
-
-  const onsubmit = (data) => {
-    console.log(data);
-    login(data);
-   
+  const getUser = () => {
+    onAuthStateChanged(auth, (user) => {
+      user?setUser(user):setUser(null); 
+    });
   };
+  const iniciarSesion=async(data)=>{
+    const errores=await loginUser(data);
+    setIsError(errores?false:true);
+   
+  }
+const {control,handleSubmit} = useForm({});
 
- 
+  useEffect(() => {
+    getUser();
+  }, []);
+
   return (
     <div className="Container-login">
-      {!User && (
-        <form onSubmit={handleSubmit(onsubmit)}>
+      {!user&& (
+        <form onSubmit={handleSubmit(iniciarSesion)}>
           <div className="div-cabecera">
             <h1>Login </h1>
             <p>Please login using account detail bellow.</p>
@@ -96,7 +94,7 @@ console.log(validate)
           <div className="div-cabecera">
             <ThemeProvider theme={Theme}>
               <Button
-                onClick={handleSubmit(onsubmit)}
+                onClick={handleSubmit(iniciarSesion)}
                 variant={"contained"}
                 size="large"
                 fullWidth
@@ -106,7 +104,7 @@ console.log(validate)
                 INGRESAR
               </Button>
             </ThemeProvider>
-            <span>{validate}</span>
+            <span>{isError&&"Error al ingresar Correo o Contraseña"}</span>
           </div>
           <br/>
           
@@ -116,13 +114,13 @@ console.log(validate)
           </div>
         </form>
       )}
-      {User && (
+      {user && (
         <div >
           <h2>Cerrar Sesion </h2>
           <br />
           <div className="div-input">
-          <img width="70"  src={photoURL} />
-          <span>Usuario :{User.displayName}</span>
+          <img width="70"  src={photoURL} alt="" />
+          <span>Usuario :{user?.displayName}</span>
           </div>
           <br />
           <ThemeProvider theme={Theme}>
@@ -134,7 +132,6 @@ console.log(validate)
            >
             Cerrar Sesion
           </Button>
-         
           </ThemeProvider>
           
         </div>
