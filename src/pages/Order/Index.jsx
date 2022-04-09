@@ -99,7 +99,7 @@ const Index = () => {
             {
                 (activeStep + 1)===1?(
 
-                  <>
+                <>
                   <div className="basket">
                     <div className="basket-labels">
                       <ul>
