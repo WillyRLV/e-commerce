@@ -1,15 +1,8 @@
 .blog-page {
   font-family: 'Poppins', sans-serif;
     background-attachment: fixed;
-    height: 100vh;
-    background-image:
-      url('../../assets/group2.png'),
-      linear-gradient(#c2e3ff 30%, #c5e7fd 40%,#ccefff);
-    background-repeat: no-repeat;
+       
     height: auto;
-  }
-.title {
-  color: #1a6283;
   }
   
 .banner-top {
@@ -40,8 +33,8 @@ text-align: justify;
 }
 
 .enlace-blog {
-  text-decoration: none;
+text-decoration: none;
 font-weight: 600;
 color: #161616;
-padding-top: 10px;
+padding-top: 5px;
 }

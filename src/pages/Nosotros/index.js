@@ -88,7 +88,7 @@ const Nosotros = () => {
   <p class="mt-3 mb-3 ">  Contacta con nosotros a través de info@mundopeques.com o a través de este formulario. Te responderemos de inmediato.  </p>
 <Formulario nombre={Formulario} url={Formulario} /> </div>
 <div  class=" img-form mb-5 col-md-5">
-<img src={imgAbout} alt="image" /> </div>
+<img src={imgAbout} alt="image" class="img-fluid" /> </div>
 
 </div>
 

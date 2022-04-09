@@ -26,7 +26,7 @@ const Blog = () => {
     </div>
 
     <div class="col-md-8 post-content">
-    <div class="content-blog"> <img src={imgBlog1} alt="image"  class="col-md-12 "/>
+    <div class="content-blog"> <img src={imgBlog1} alt="image"  class="img-fluid"/>
     <div class="blog-nota  mt-4 mb-5 col-md-11">
           <div class="datos"> <h6> <b> Carolina Pinedo </b> | 16 marzo 2021 </h6> </div>
           <h1 class=" mt-3 mb-5">Método Montessori: qué es y qué deben saber los padres a la hora de elegirlo para sus hijos</h1>
@@ -61,16 +61,16 @@ Efectivamente, “muchas familias eligen la escuela Montessori buscando un lugar
   <div class="nota border-bottom p-4 bg-light" id="">
   <div class="datos"> <h6> <b> 13 enero 2021 </b> </h6> </div>
   <img src={imgBlog2} alt="image"  class="img-fluid"/>
-  <p class=" enlace-blog mb-2"><a class="enlace-blog" href="#">Los juegos didácticos para mejorar el aprendizaje de los niños</a></p>
+  <p class=" enlace-blog mb-1"><a class="enlace-blog" href="#">Los juegos didácticos para mejorar el aprendizaje de los niños</a></p>
  
    
-  <button class="button" type="">Ver más</button>
+  <button class="button mb-2" type="">Ver más</button>
     </div>
 
   <div class="nota border-bottom p-4 bg-light" id="">
   <div class="datos"> <h6> <b> 9 febreo 2021 </b> </h6> </div>
   <img src={imgBlog3} alt="image"  class="img-fluid"/>
-  <p class=" enlace-blog mb-2"><a  class="enlace-blog" href="#">Dos secretos que cambiarán la forma en que juegan tus hijos</a></p>
+  <p class=" enlace-blog mb-1"><a  class="enlace-blog" href="#">Dos secretos que cambiarán la forma en que juegan tus hijos</a></p>
  
   <button class="button" type="">Ver más</button>
   </div>
