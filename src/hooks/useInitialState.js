@@ -1,4 +1,5 @@
 import { useState } from "react";
+//Custom Hook
 
 const initialState = {
 	cart: [],
@@ -7,14 +8,14 @@ const initialState = {
 const useInitialState = () => {
 	const [state, setState] = useState(initialState);
 
-	const addToCart = (payload) => {
+	const addToCart = (product) => {
 
-		// console.log("Add",payload)
+		// console.log("Add",product)
 
 		let tempState ;
 		if (state.cart.length > 0 ) {
 			tempState = state.cart.map((item) =>{
-				if (item.id === payload.id){
+				if (item.id === product.id){
 					return { ...item, quantity: item.quantity + 1 } //Actualizamos la cantidad
 				} else {
 					return item
@@ -22,11 +23,11 @@ const useInitialState = () => {
 		   	})
 		}	
 	
-		let itemFind = state.cart.find(items => items.id === payload.id);
+		let itemFind = state.cart.find(items => items.id === product.id);
 		if (itemFind === undefined){
 			setState({
 				...state,
-				cart: [...state.cart,payload]
+				cart: [...state.cart,product]
 			});
 		}else{
 			setState({cart: [...tempState]});
@@ -34,12 +35,12 @@ const useInitialState = () => {
 
 	};
 
-	const addQuantity = (payload) => {
+	const addQuantity = (product) => {
 
 		let tempState ;
 		if (state.cart.length > 0 ) {
 			tempState = state.cart.map((item) =>{
-				if (item.id === payload.id){
+				if (item.id === product.id){
 					return { ...item, quantity: item.quantity + 1 } //Actualizamos la cantidad
 				} else {
 					return item
@@ -52,12 +53,12 @@ const useInitialState = () => {
 	};
 
 	
-	const removeQuantity = (payload) => {
+	const removeQuantity = (product) => {
 
 		let tempState ;
 		if (state.cart.length > 0 ) {
 			tempState = state.cart.map((item) =>{
-				if (item.id === payload.id){
+				if (item.id === product.id){
 					return { ...item, quantity: item.quantity===1?item.quantity:item.quantity-1 } //Actualizamos la cantidad
 				} else {
 					return item
@@ -69,10 +70,10 @@ const useInitialState = () => {
 
 	};
 
-	const removeFromCart = (payload) => {
+	const removeFromCart = (product) => {
 		setState({
 			...state,
-			cart: state.cart.filter(items => items.id !== payload.id),
+			cart: state.cart.filter(items => items.id !== product.id),
 		});
 	}
 

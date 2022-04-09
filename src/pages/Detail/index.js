@@ -29,9 +29,9 @@ useEffect (() => {
 
 const { addToCart } = useContext(AppContext);
 
-	const handleClick = item => {
+	const handleClick = product => {
 
-		addToCart({...item,quantity: 1});
+		addToCart({...product,quantity: 1});
 	}
 
 return (
