@@ -12,12 +12,11 @@ const Home = () => {
 
           <h3>PARA UN MEJOR FUTURO</h3>
             <h2>
-              PRODUCTOS SALUDABLES Y ALTERNATIVOS PARA LOS MENORES DEL HOGAR
+            METODOLOGÍA MONTESSORI
             </h2>
             
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-              congue sed et leo, dignissim odio justo.
+            La metodología Montessori involucra un desarrollo integral psicomotriz del niño, potenciando sus habilidades blandas desde temprana edad, a fin de obtener un óptimo nivel en su  futuro desempeño escolar
             </p>
           </div>
 
