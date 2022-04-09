@@ -65,10 +65,13 @@ const Navbar = () => {
             <div className={status}>
               <ul>
                 <li>
-                  <Link to="/">Home</Link>
+                  <Link to="/">Inicio</Link>
                 </li>
                 <li>
-                  <Link to="/">Productos</Link>
+                  <Link to="/tienda">Tienda</Link>
+                </li>
+                <li>
+                  <Link to="/">Nosotros</Link>
                 </li>
                 <li>
                   <Link to="/">Blog</Link>
