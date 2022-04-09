@@ -86,11 +86,12 @@ const Tienda = () => {
 	}
 
   return (
-    <Container>
-      <Grid container mt={5} spacing={3}>
+    <Container className="container-tienda">
+      <Grid container container-filter mt={5} spacing={3} justifyContent="center">
         <Grid item md={2} className="menu" mt={3}>
           <Grid mt={1} >
               <div>
+                
                 <h2>Filtrar por:</h2>
                 <br/>
                 <FormControl fullWidth>
@@ -103,6 +104,7 @@ const Tienda = () => {
                     <MenuItem value="7 a 9">7 a 9</MenuItem>
                   </Select>
                 </FormControl>
+                
                 <br/>
                 <FormControl fullWidth>
                   <InputLabel>Material</InputLabel>
@@ -147,7 +149,7 @@ const Tienda = () => {
           </Grid>
 
 
-          <Grid container spacing={3} mt={2} mb={5}>
+          <Grid container cont-card spacing={3} mt={2} mb={5} >
            {products.length > 0 &&
             products.map((product) => (
                 <Grid item md={4} key={product.id} >

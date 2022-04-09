@@ -68,7 +68,8 @@ const Navbar = () => {
       <nav className="container">
         <div className="nav">
           <div className="logo">
-            <img src={logo} style={{ width: 140 }} />
+          <Link to="/"> <img src={logo} style={{ width: 140 }} /></Link>
+           
           </div>
           <div>
             <div className={status}>

@@ -24,6 +24,7 @@
 }
 
 .menu {
+
   background-color: white;
   border-radius: 5px;
   padding-right: 12px !important;
@@ -32,4 +33,13 @@
 }
 .link {
   text-decoration: none;
+}
+
+
+.container-tienda{
+  padding-top: 30px;
+
+}
+@media screen and  (max-width:700px)  {
+  
 }
